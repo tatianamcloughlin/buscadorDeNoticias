@@ -6,14 +6,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { DEFAULT_IMAGE } from '../../libs/constantes';
-import { fechaActual,hora,now } from '../../libs/constantes';
-
+import { DateTime } from 'luxon';
 
 const Noticia=({
     noticia
 })=> {
-    console.log(noticia)
-    console.log(now );
+    const fechaPublicacion=()=>{
+        const fechaForm = DateTime.fromISO(noticia.publishedAt)
+        const fechaOutput = `${fechaForm.day}-${fechaForm.month}-${fechaForm.year} a las ${fechaForm.hour}:${fechaForm.minute}hs `
+        return fechaOutput;
+    }
+    
+
   return (
     <Card sx={{ 
         maxWidth: 400, 
@@ -23,7 +27,7 @@ const Noticia=({
         component="img"
         alt="imagen default"
         height="240"
-        image={noticia.urlToImage == 'null'? DEFAULT_IMAGE : noticia.urlToImage}
+        image={noticia.urlToImage === 'null'? DEFAULT_IMAGE : noticia.urlToImage}
       />
       <CardContent>
         <Typography gutterBottom 
@@ -41,8 +45,11 @@ const Noticia=({
         fontWeight='bold'>
           {noticia.title}
         </Typography>
-        <Typography>
-
+        <Typography
+        color='#596d8a'
+        fontSize='10px'
+        >
+           {fechaPublicacion()}
         </Typography>
       </CardContent>
       <CardActions>
