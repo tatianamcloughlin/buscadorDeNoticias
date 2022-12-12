@@ -16,6 +16,7 @@ const Buscador =({
     <Paper
       component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '50%', marginTop: '20px', height:40, marginBottom:'20px' }}
+      elevation={4}
     >
       <InputBase
         sx={{ ml: 1, flex: 1 , marginLeft:'10px'}}
@@ -33,6 +34,8 @@ const Buscador =({
       onClick={()=>{
         onBuscar(criterioDeBusqueda)
       }}
+  
+  
       >
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
         <SearchIcon />

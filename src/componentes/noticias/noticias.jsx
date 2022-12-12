@@ -13,7 +13,7 @@ const Noticia=({
 })=> {
     const fechaPublicacion=()=>{
         const fechaForm = DateTime.fromISO(noticia.publishedAt)
-        const fechaOutput = `${fechaForm.day}-${fechaForm.month}-${fechaForm.year} a las ${fechaForm.hour}:${fechaForm.minute}hs `
+        const fechaOutput = fechaForm.toFormat("DD 'a las' hh:mm 'hs'")
         return fechaOutput;
     }
     
@@ -22,7 +22,10 @@ const Noticia=({
     <Card sx={{ 
         maxWidth: 400, 
         marginTop:5, 
-        background:'#c5b0b0' }}>
+        background:'#c5b0b0', 
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',}}>
       <CardMedia
         component="img"
         alt="imagen default"

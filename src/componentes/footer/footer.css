@@ -1,10 +1,16 @@
 .div-footer{
-    width: 97%;
-    height: 30px;
+    width: 93%;
+    height: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 10px 20px 10px 20px;
-    background: rgb(129, 126, 126);
+    background: hsla(0, 3%, 6%, 0.43);
+    margin-top: auto;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: aliceblue;
+    font-size: smaller;
 }
+

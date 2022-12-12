@@ -1,21 +1,36 @@
 .nav-superior{
-    height: 30px;
-    width: 97%;
-    background: rgb(129, 126, 126);
+    height: auto;
+    width: 93%;
+    background:hsla(0, 3%, 6%, 0.43);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px 10px 20px;
+    padding: 3px 20px 3px 20px;
+    margin-top: 20px;
+    border-radius: 7px;
 }
 
 .div-logo{
-    margin: 15px;
+    width: auto;
 }
 
 .div-inicio{
-    margin: 15px;
-    color: #596d8a;
+    color: #596D86;
+    border-radius: 42px;
+    background: #596d8600;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
 
+
+.div-inicio:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }
-
+.linkBuscador{
+    color: aliceblue;
+    font-weight: 3px;
+}
