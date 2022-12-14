@@ -1,11 +1,12 @@
 
-export const DEFAULT_IMAGE = ".../public/imagenes/imagdefault.jpg"; 
+export const DEFAULT_IMAGE = '/imagenes/default-image.png'; 
 
 
 const { DateTime } = require("luxon");
 export const now = DateTime.now();
 const f = {month: 'long', day: 'numeric', year: 'numeric'};
-export const hora = `${now.hour}:${now.minute}`
+export const hora =now.toFormat("hh:mm")
+
 export const fechaActual = now.setLocale('es').toLocaleString(f);
 
 // const dia = now.day;

@@ -8,8 +8,9 @@ import { useState } from "react";
 import { getListadoNoticias } from "../servicios/noticias";
 import ListaNoticias from "../componentes/noticias/listaDeNoticias";
 import { color } from "@mui/system";
-import CapsulaDataTime from "../componentes/capsulaDataTime/capsulaDataTime";
+import {CapsulaDataTime} from "../componentes/capsulaDataTime/capsulaDataTime";
 import "./paginappal.css"
+import Flecha from "../componentes/frecha/flecha";
 
 
 
@@ -41,24 +42,25 @@ const PagPrincipal =()=>{
     if( totalResultados <10 ){
         numeroNoticias = totalResultados}
     else{ numeroNoticias = 10}
+
     
 
     return (
     <main className="container">
-        <Header/>
+        <Header noticias ={noticias}/>
         {!noticias && <CapsulaDataTime />}
         <Buscador  onBuscar ={onBuscar} />
-        {noticias && <div style={{color:'#596d8a'}}>Está viendo {numeroNoticias} noticias de {totalResultados} resultados </div>}
+        {noticias && <div style={{color:'#596d8a', fontWeight: '100'}}>Está viendo {numeroNoticias} noticias de {totalResultados} resultados </div>}
         {loading && <Loading/>}
         <div className="ContListNot">
         {noticias && <ListaNoticias noticias ={noticias} />}
         </div>
-        {noticias && <Paginador cantidadDePaginas = {cantidadDePaginas} onChange={onCambioPagina}/>}
-        <br />
-        <img src="" alt="" />
+        {noticias && <Paginador cantidadDePaginas = {cantidadDePaginas} onChange={onCambioPagina}/>}     
+        {noticias && <Flecha/>}
         <Footer/>
     </main>
     )
 };
+
 
 export default PagPrincipal;

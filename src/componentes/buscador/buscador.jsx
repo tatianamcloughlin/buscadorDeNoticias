@@ -12,9 +12,15 @@ const Buscador =({
     onBuscar
 })=> {
     const [criterioDeBusqueda , setCriterioDeBusqueda] = useState('');
-  return (
+    var mayorATres = false
+
+    if (criterioDeBusqueda.length > 3){
+        mayorATres = true
+    }
+
+    return (
     <Paper
-      component="form"
+      component="div"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '50%', marginTop: '20px', height:40, marginBottom:'20px' }}
       elevation={4}
     >
@@ -26,17 +32,25 @@ const Buscador =({
         onChange={(e) => { 
             setCriterioDeBusqueda(e.target.value)
         }}
+
+        onKeyDown={(e) => {
+          if(mayorATres){
+            if(e.key==='Enter'){
+            setCriterioDeBusqueda(e.target.value)
+            onBuscar(e.target.value)}
+        }}}
+        
       />
+      
       <IconButton 
       type="button" 
       sx={{ p: '10px' }} 
       aria-label="search"
       onClick={()=>{
         onBuscar(criterioDeBusqueda)
-      }}
-  
-  
-      >
+      }} 
+      disabled ={mayorATres ? false : true } >
+      
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
         <SearchIcon />
       </IconButton>

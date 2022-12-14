@@ -1,6 +1,7 @@
-import * as React from 'react';
+
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import './paginador.css'
 
 const Paginador=({
   cantidadDePaginas,
@@ -11,11 +12,17 @@ const Paginador=({
 
   };
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} >
       <Pagination 
       count={cantidadDePaginas} 
       shape="rounded" 
-      onChange={cambioPagina}/>
+      onChange={cambioPagina}
+      sx={{
+        color:'#a7aeb9',
+        marginTop:'10px',
+        marginBottom:'10px'
+
+      }}/>
     </Stack>
   );
 }

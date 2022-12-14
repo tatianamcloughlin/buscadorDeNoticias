@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import PaginaPrincipal from './paginas/PaginaPrincipal';
+import PagNoticia from './paginas/PaginaNoticiaDescripcion';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/buscador",
     element: <PaginaPrincipal/>,
+  },
+  {
+    path: "/:id",
+    element: <PagNoticia/>,
   },
 ]);
 
