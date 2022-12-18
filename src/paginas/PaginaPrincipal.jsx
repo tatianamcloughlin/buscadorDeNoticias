@@ -11,6 +11,10 @@ import { color } from "@mui/system";
 import {CapsulaDataTime} from "../componentes/capsulaDataTime/capsulaDataTime";
 import "./paginappal.css"
 import Flecha from "../componentes/frecha/flecha";
+import  NoHayNoticia from "../componentes/errores/noHayNoti"
+
+
+
 
 
 
@@ -33,24 +37,21 @@ const PagPrincipal =()=>{
     };
 
     const onCambioPagina=(pagina)=>{
-        onBuscar(criterioDeBusqueda,pagina)
-        
+        onBuscar(criterioDeBusqueda,pagina)}
 
-    }
-
-    let numeroNoticias = 0
-    if( totalResultados <10 ){
-        numeroNoticias = totalResultados}
-    else{ numeroNoticias = 10}
-
-    
+    const cantidadDeNoticias =()=>{
+        let numNot = 0
+        if (noticias) {
+            numNot = noticias.length}
+        return numNot; }
 
     return (
     <main className="container">
         <Header noticias ={noticias}/>
         {!noticias && <CapsulaDataTime />}
         <Buscador  onBuscar ={onBuscar} />
-        {noticias && <div style={{color:'#596d8a', fontWeight: '100'}}>Está viendo {numeroNoticias} noticias de {totalResultados} resultados </div>}
+        {noticias && (cantidadDeNoticias()===0 ) && <NoHayNoticia/> }
+        {(cantidadDeNoticias()>0) && <div style={{color:'#596d8a', fontWeight: '100'}}> Está viendo {cantidadDeNoticias()} noticias de {totalResultados} resultados </div>}
         {loading && <Loading/>}
         <div className="ContListNot">
         {noticias && <ListaNoticias noticias ={noticias} />}

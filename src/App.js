@@ -1,26 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
 import PaginaPrincipal from './paginas/PaginaPrincipal';
-import PagNoticia from './paginas/PaginaNoticiaDescripcion';
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
 } from "react-router-dom";
+import Error404 from './componentes/errores/404';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <PaginaPrincipal/>,
+    errorElement: <Error404 />,
   },
   {
     path: "/buscador",
     element: <PaginaPrincipal/>,
   },
-  {
-    path: "/:id",
-    element: <PagNoticia/>,
-  },
+
 ]);
 
 
